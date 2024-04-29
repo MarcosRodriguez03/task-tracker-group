@@ -21,8 +21,5 @@ namespace task_tracker_group.Models.Task
     {
         DateCreated = DateTime.Now;
     }
-
-    
     }
-
 }
