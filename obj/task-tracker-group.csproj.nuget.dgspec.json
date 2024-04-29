@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/task-tracker-group.csproj": {}
+    "/Users/calebsylvia/Downloads/Codestack Academy/Level 4/TaskTracker/task-tracker-group/task-tracker-group.csproj": {}
   },
   "projects": {
-    "/Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/task-tracker-group.csproj": {
+    "/Users/calebsylvia/Downloads/Codestack Academy/Level 4/TaskTracker/task-tracker-group/task-tracker-group.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/task-tracker-group.csproj",
+        "projectUniqueName": "/Users/calebsylvia/Downloads/Codestack Academy/Level 4/TaskTracker/task-tracker-group/task-tracker-group.csproj",
         "projectName": "task-tracker-group",
-        "projectPath": "/Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/task-tracker-group.csproj",
-        "packagesPath": "/Users/marcosrodriguez/.nuget/packages/",
-        "outputPath": "/Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/obj/",
+        "projectPath": "/Users/calebsylvia/Downloads/Codestack Academy/Level 4/TaskTracker/task-tracker-group/task-tracker-group.csproj",
+        "packagesPath": "/Users/calebsylvia/.nuget/packages/",
+        "outputPath": "/Users/calebsylvia/Downloads/Codestack Academy/Level 4/TaskTracker/task-tracker-group/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/marcosrodriguez/.nuget/NuGet/NuGet.Config"
+          "/Users/calebsylvia/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -41,6 +41,26 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
