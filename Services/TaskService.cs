@@ -24,10 +24,9 @@ namespace task_tracker_group.Services
                 Priority = task.Priority,
                 Status = task.Status,
                 UserID = task.UserID,
-                result = _context.SaveChanges() != 0;
             };
 
-            return result
+            return result;
         }
 
         public bool AddComment(CommentDTO comment)
@@ -41,10 +40,9 @@ namespace task_tracker_group.Services
                 Comment = comment.Comment,
                 Username = comment.Username,
                 UserID = comment.UserID,
-                result = _context.SaveChanges() != 0;
             };
 
-            return result
+            return result;
         }
 
         public bool EditTask(TaskCreateDTO task)
