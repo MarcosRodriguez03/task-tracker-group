@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace task_tracker_group.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        
+
     }
 }
