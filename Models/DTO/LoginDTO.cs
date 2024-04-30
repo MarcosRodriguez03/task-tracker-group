@@ -9,6 +9,5 @@ namespace task_tracker_group.Models.DTO
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public string ConfrimPassword { get; set; }
     }
 }
