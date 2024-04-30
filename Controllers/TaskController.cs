@@ -25,6 +25,23 @@ namespace task_tracker_group.Controllers
             return _taskService.TaskCreate(task);
         }
 
+
+        [HttpPost]
+        [Route("Task/AddComment")]
+
+        public bool AddComment(CommentDTO comment)
+        {
+            return _taskService.AddComment(comment);
+        }
+
+        [HttpPut]
+        [Route("Task/EditTask")]
+
+        public bool EditTask(TaskCreateDTO task)
+        {
+            return _taskService.EditTask(task);
+        }
+
         
     }
 }

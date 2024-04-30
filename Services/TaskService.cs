@@ -23,5 +23,27 @@ namespace task_tracker_group.Services
 
             return true;
         }
+
+        public bool AddComment(CommentDTO comment)
+        {
+            CommentModel commentModel = new ()
+            {
+                Comment = comment.Comment,
+                UserID = comment.UserID,
+            }
+
+            return true;
+        }
+
+        public bool EditTask(TaskEditDTO task)
+        {
+
+        }
+
+
+        public TaskModel GetTask(int id)
+        {
+            return _context
+        }
     }
 }
