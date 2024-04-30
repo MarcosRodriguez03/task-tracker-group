@@ -21,8 +21,7 @@ namespace task_tracker_group.Services
                 UserID = task.UserID,
             };
 
-            
-            
+            return true;
         }
     }
 }
