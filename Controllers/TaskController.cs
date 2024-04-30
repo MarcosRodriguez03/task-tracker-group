@@ -11,13 +11,9 @@ namespace task_tracker_group.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-        
 
-        [HttpPost]
-        [Route("Task/TaskCreate")]
-        
-        public bool TaskCreate(TaskCreateDTO task){
-            
-        }
+
+
+
     }
 }
