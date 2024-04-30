@@ -32,9 +32,14 @@ namespace task_tracker_group.Services
 
         public bool AddComment(CommentDTO comment)
         {
+
+            bool result = false;
+
+            
             CommentModel commentModel = new ()
             {
                 Comment = comment.Comment,
+                Username = comment.Username,
                 UserID = comment.UserID,
             }
 
@@ -43,7 +48,21 @@ namespace task_tracker_group.Services
 
         public bool EditTask(TaskEditDTO task)
         {
-            return true;
+
+            bool result = false;
+
+            TaskModel foundTask = GetTask(task.ID);
+
+            if(foundTask != null)
+            {
+                foundTask.Description = task.Description;
+                foundTask.Priority = task.Priority;
+                foundTask.Status = task.Status;
+                _context.Update<TaskModel>(foundTask);
+                result = _context.SaveChanges() != 0;
+            }
+            
+            return result;
         }
 
 
