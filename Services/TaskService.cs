@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using task_tracker_group.Models;
-using task_tracker_group.Models.Task;
+using task_tracker_group.Models.DTO;
+using task_tracker_group.Services.Context;
 
 namespace task_tracker_group.Services
 {
@@ -18,6 +15,8 @@ namespace task_tracker_group.Services
 
         public bool TaskCreate(TaskCreateDTO task){
 
+            bool result = false;
+
             TaskModel taskModel = new ()
             {
                 TaskName = task.TaskName,
@@ -25,9 +24,10 @@ namespace task_tracker_group.Services
                 Priority = task.Priority,
                 Status = task.Status,
                 UserID = task.UserID,
+                result = _context.SaveChanges() != 0;
             };
 
-            return true;
+            return result
         }
 
         public bool AddComment(CommentDTO comment)
@@ -41,12 +41,13 @@ namespace task_tracker_group.Services
                 Comment = comment.Comment,
                 Username = comment.Username,
                 UserID = comment.UserID,
-            }
+                result = _context.SaveChanges() != 0;
+            };
 
-            return true;
+            return result
         }
 
-        public bool EditTask(TaskEditDTO task)
+        public bool EditTask(TaskCreateDTO task)
         {
 
             bool result = false;
@@ -60,7 +61,7 @@ namespace task_tracker_group.Services
                 foundTask.Status = task.Status;
                 _context.Update<TaskModel>(foundTask);
                 result = _context.SaveChanges() != 0;
-            }
+            };
             
             return result;
         }
@@ -68,7 +69,7 @@ namespace task_tracker_group.Services
 
         public TaskModel GetTask(int id)
         {
-            return _context.TaskInfo.SingleOrDefault(task => task.ID == id) != null;
+            return _context.TaskInfo.FirstOrDefault(task => task.ID == id);
         }
     }
 }

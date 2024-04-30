@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using task_tracker_group.Models;
+using task_tracker_group.Models.DTO;
+using task_tracker_group.Services;
 
 namespace task_tracker_group.Controllers
 {

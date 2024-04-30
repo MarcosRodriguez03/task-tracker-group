@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PasswordService>();
+builder.Services.AddScoped<TaskService>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("MarcosRTaskTracker");

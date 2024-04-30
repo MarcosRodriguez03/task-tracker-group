@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace task_tracker_group.Models.Task
+namespace task_tracker_group.Models
 {
     public class TaskModel
     {
