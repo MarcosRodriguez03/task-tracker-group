@@ -10,6 +10,12 @@ namespace task_tracker_group.Services
     public class TaskService
     {
 
+        private readonly DataContext _context;
+        public TaskService(DataContext context)
+        {
+            _context = context;
+        }
+
         public bool TaskCreate(TaskCreateDTO task){
 
             TaskModel taskModel = new ()
@@ -37,13 +43,13 @@ namespace task_tracker_group.Services
 
         public bool EditTask(TaskEditDTO task)
         {
-
+            return true;
         }
 
 
         public TaskModel GetTask(int id)
         {
-            return _context
+            return _context.TaskInfo.SingleOrDefault(task => task.ID == id) != null;
         }
     }
 }
