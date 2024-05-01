@@ -10,7 +10,7 @@ using task_tracker_group.Services;
 namespace task_tracker_group.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class TaskController : ControllerBase
     {
 
@@ -21,7 +21,7 @@ namespace task_tracker_group.Controllers
         
 
         [HttpPost]
-        [Route("Task/TaskCreate")]
+        [Route("TaskCreate")]
         
         public bool TaskCreate(TaskCreateDTO task){
             return _taskService.TaskCreate(task);
@@ -29,7 +29,7 @@ namespace task_tracker_group.Controllers
 
 
         [HttpPost]
-        [Route("Task/AddComment")]
+        [Route("AddComment")]
 
         public bool AddComment(CommentDTO comment)
         {
@@ -37,7 +37,7 @@ namespace task_tracker_group.Controllers
         }
 
         [HttpPut]
-        [Route("Task/EditTask")]
+        [Route("EditTask")]
 
         public bool EditTask(TaskCreateDTO task)
         {

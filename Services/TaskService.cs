@@ -15,7 +15,7 @@ namespace task_tracker_group.Services
 
         public bool TaskCreate(TaskCreateDTO task){
 
-            bool result = false;
+            
 
             TaskModel taskModel = new ()
             {
@@ -26,7 +26,9 @@ namespace task_tracker_group.Services
                 UserID = task.UserID,
             };
 
-            return result;
+            _context.Add(taskModel);
+
+            return _context.SaveChanges() != 0;
         }
 
         public bool AddComment(CommentDTO comment)
