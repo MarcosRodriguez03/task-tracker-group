@@ -13,6 +13,7 @@ namespace task_tracker_group.Services.Context
     {
         public DbSet<UserModel> UserInfo { get; set; }
         public DbSet<TaskModel> TaskInfo { get; set; }
+        public DbSet<CommentModel> CommentInfo { get; set; }
 
         public DataContext(DbContextOptions options) : base(options) { }
 

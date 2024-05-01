@@ -15,34 +15,37 @@ namespace task_tracker_group.Services
 
         public bool TaskCreate(TaskCreateDTO task){
 
-            bool result = false;
-
             TaskModel taskModel = new ()
             {
+                ID = task.ID,
                 TaskName = task.TaskName,
                 Description = task.Description,
                 Priority = task.Priority,
                 Status = task.Status,
                 UserID = task.UserID,
+                BoardID = task.BoardID,
             };
 
-            return result;
+            _context.Add(taskModel);
+
+            return _context.SaveChanges() != 0;
         }
 
         public bool AddComment(CommentDTO comment)
         {
 
-            bool result = false;
-
             
             CommentModel commentModel = new ()
             {
+                ID = comment.ID,
                 Comment = comment.Comment,
                 Username = comment.Username,
                 UserID = comment.UserID,
             };
 
-            return result;
+            _context.Add(commentModel);
+
+            return _context.SaveChanges() != 0;
         }
 
         public bool EditTask(TaskCreateDTO task)
@@ -69,5 +72,12 @@ namespace task_tracker_group.Services
         {
             return _context.TaskInfo.FirstOrDefault(task => task.ID == id);
         }
+
+
+        public IEnumerable<TaskModel> GetBoardTasks(string boardID)
+        {
+            return (List<TaskModel>)_context.TaskInfo.Where(task => task.BoardID == boardID);
+        }
+
     }
 }

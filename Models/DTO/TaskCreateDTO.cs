@@ -14,5 +14,6 @@ namespace task_tracker_group.Models.DTO
         public int Priority { get; set; }
         public string? Assignee { get; set; }
         public int UserID { get; set; }
+        public string BoardID { get; set; }
     }
 }
