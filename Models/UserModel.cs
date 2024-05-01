@@ -10,9 +10,17 @@ namespace task_tracker_group.Models
         public int ID { get; set; }
 
         public string? Username { get; set; }
-        public string? Salt { get; set; }
-        public string? Hash { get; set; }
 
+        public string? ProfilePicture { get; set; }
+        
+        public int? ColorId { get; set; }
+
+        public DateTime? DateMade { get; set; }
+
+        public string? Salt { get; set; }
+        
+        public string? Hash { get; set; }
+        
         public UserModel()
         {
 
