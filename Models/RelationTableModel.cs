@@ -13,7 +13,7 @@ namespace task_tracker_group.Models
 
   
     public int UserID { get; set; }
-    public RelationModel()
+    public RelationTableModel()
     {
         
     }

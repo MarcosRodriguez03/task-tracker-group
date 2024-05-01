@@ -38,8 +38,13 @@ namespace task_tracker_group.Services
 
                 var hashPassword = HashPassword(UserToAdd.Password);
 
+                  Random random = new Random();
+                  int randomNumber = random.Next(1, 13);
+
                 newUser.ID = UserToAdd.ID;
                 newUser.Username = UserToAdd.Username;
+                newUser.ColorId = randomNumber;
+                newUser.DateMade = DateTime.Today;
                 newUser.Salt = hashPassword.Salt;
                 newUser.Hash = hashPassword.Hash;
 
@@ -197,5 +202,67 @@ namespace task_tracker_group.Services
 
             return UserInfo;
         }
+
+        public IActionResult UpdateUserInfo(UserModel userObject)
+    {
+
+        UserModel existingUser = GetUserById(userObject.ID);
+
+        if (existingUser != null)
+        {
+           
+            existingUser.Image = userObject.Image;
+            _context.SaveChanges();
+        }
+        return Ok(existingUser);
+    }
+
+
+      public UserModel GetProfileByUserID(int id)
+    {
+        return _context.UserInfo.SingleOrDefault(item => item.ID == id);
+    }
+
+      public bool UpdateUserColor(int userId, int colorId)
+    {
+       UserModel existingUser = GetUserById(userId);
+
+        if (existingUser != null)
+        {
+           
+            existingUser.ColorId = colorId;
+            _context.SaveChanges();
+            return true;
+        }
+        return false;
+    }
+
+       public IActionResult UpdateUserImage(UserModel updateUser)
+    {
+
+        UserModel existingUser = GetUserById(updateUser.ID);
+
+        if (existingUser != null)
+        {
+            existingUser.Image = updateUser.Image;
+            _context.SaveChanges();
+        }
+        return Ok(existingUser);
+    }
+
+
     }
 }
+    //  public int ID { get; set; }
+
+    //     public string? Username { get; set; }
+
+    //     public string? ProfilePicture { get; set; }
+        
+    //     public int? ColorId { get; set; }
+
+    //     public DateTime? DateMade { get; set; }
+
+    //     public string? Salt { get; set; }
+        
+    //     public string? Hash { get; set; }

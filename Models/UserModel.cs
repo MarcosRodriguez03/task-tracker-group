@@ -11,7 +11,7 @@ namespace task_tracker_group.Models
 
         public string? Username { get; set; }
 
-        public string? ProfilePicture { get; set; }
+        public string? Image { get; set; }
         
         public int? ColorId { get; set; }
 
@@ -20,10 +20,10 @@ namespace task_tracker_group.Models
         public string? Salt { get; set; }
         
         public string? Hash { get; set; }
-        
+
         public UserModel()
         {
-
+                  
         }
     }
 }

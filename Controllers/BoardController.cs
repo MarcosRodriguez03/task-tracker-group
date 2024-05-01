@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using task_tracker_group.Models;
+using task_tracker_group.Services;
 
 namespace task_tracker_group.Controllers
 {
@@ -24,10 +26,15 @@ namespace task_tracker_group.Controllers
         [Route("CreateProject")]
         public bool CreateBoard(BoardModel newBoard)
         {
-            return _data.CreateProject(newBoard);
+            return _data.CreateBoard(newBoard);
         }
         
-
+        // [HttpGet]
+        // [Route("GetAllProjects")]
+        // public IEnumerable<BoardModel> GetAllProjects()
+        // {
+        //     return _data.GetAllProjects();
+        // }
 
         
     }
