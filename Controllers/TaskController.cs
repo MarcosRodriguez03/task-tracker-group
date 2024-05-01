@@ -44,6 +44,14 @@ namespace task_tracker_group.Controllers
             return _taskService.EditTask(task);
         }
 
+
+        [HttpGet]
+        [Route("GetBoardTask/{boardID}")]
+
+        public IEnumerable<TaskModel> GetBoardTasks(string BoardID)
+        {
+            return _taskService.GetBoardTasks(BoardID);
+        }
         
     }
 }
