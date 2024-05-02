@@ -1,3 +1,4 @@
+using Microsoft.Extensions.ObjectPool;
 using task_tracker_group.Models;
 using task_tracker_group.Models.DTO;
 using task_tracker_group.Services.Context;
@@ -28,9 +29,6 @@ namespace task_tracker_group.Services
                 BoardID = task.BoardID,
             };
 
-            _context.Add(taskModel);
-
-            return _context.SaveChanges() != 0;
             _context.Add(taskModel);
 
             return _context.SaveChanges() != 0;
@@ -79,9 +77,12 @@ namespace task_tracker_group.Services
         }
 
 
-        public IEnumerable<TaskModel> GetBoardTasks(string boardID)
+        public List<TaskModel> GetBoardTasks(string boardID)
         {
-            return (List<TaskModel>)_context.TaskInfo.Where(task => task.BoardID == boardID);
+
+            var properties = _context.TaskInfo.Where(task => task.BoardID == boardID).ToList();
+
+            return properties;
         }
 
     }
