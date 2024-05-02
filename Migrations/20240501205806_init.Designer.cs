@@ -12,7 +12,7 @@ using task_tracker_group.Services.Context;
 namespace task_tracker_group.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240501165911_init")]
+    [Migration("20240501205806_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -25,6 +25,78 @@ namespace task_tracker_group.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("task_tracker_group.Models.BoardModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("BoardCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BoardInfo");
+                });
+
+            modelBuilder.Entity("task_tracker_group.Models.CommentModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateMade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("CommentInfo");
+                });
+
+            modelBuilder.Entity("task_tracker_group.Models.RelationTableModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("BoardID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("RelationTableInfo");
+                });
+
             modelBuilder.Entity("task_tracker_group.Models.TaskModel", b =>
                 {
                     b.Property<int>("ID")
@@ -34,6 +106,10 @@ namespace task_tracker_group.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Assignee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BoardID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -90,7 +166,7 @@ namespace task_tracker_group.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("UserModel");
+                    b.ToTable("UserInfo");
                 });
 #pragma warning restore 612, 618
         }

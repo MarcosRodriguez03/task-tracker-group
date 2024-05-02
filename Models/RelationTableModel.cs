@@ -9,7 +9,7 @@ namespace task_tracker_group.Models
     {
     public int ID { get; set; }
 
-    public int ProjectID { get; set; }
+    public int BoardID { get; set; }
 
   
     public int UserID { get; set; }

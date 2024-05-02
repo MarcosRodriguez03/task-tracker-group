@@ -44,7 +44,7 @@ namespace task_tracker_group.Services
             RelationTableModel relationModel = new RelationTableModel();
             
             relationModel.UserID = newBoard.UserID;
-            relationModel.ProjectID = _context.BoardInfo.Count() + 1;
+            relationModel.BoardID = _context.BoardInfo.Count() + 1;
 
             _context.Add(relationModel);
 
