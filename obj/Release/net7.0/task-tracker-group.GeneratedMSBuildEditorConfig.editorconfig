@@ -1,0 +1,17 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = task_tracker_group
+build_property.RootNamespace = task_tracker_group
+build_property.ProjectDir = /Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/marcosrodriguez/Documents/CodeStack/level 4/week 2/task-tracker-group
+build_property._RazorSourceGeneratorDebug = 
