@@ -46,9 +46,9 @@ namespace task_tracker_group.Controllers
 
 
         [HttpGet]
-        [Route("GetBoardTask/{boardID}")]
+        [Route("GetBoardTask/{BoardID}")]
 
-        public IEnumerable<TaskModel> GetBoardTasks(string BoardID)
+        public List<TaskModel> GetBoardTasks(string BoardID)
         {
             return _taskService.GetBoardTasks(BoardID);
         }
