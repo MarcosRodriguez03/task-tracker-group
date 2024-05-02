@@ -70,32 +70,33 @@ namespace task_tracker_group.Controllers
         public IActionResult UpdateUserInfo(UserModel updateUser)
         {
 
-             return _data.UpdateUserInfo(updateUser);
+            return _data.UpdateUserInfo(updateUser);
         }
 
-           [HttpGet]
+        [HttpGet]
 
         [Route("GetProfileByUserID/{id}")]
 
-         public UserModel GetProfileByUserID(int id)
-         {
+        public UserModel GetProfileByUserID(int id)
+        {
             return _data.GetProfileByUserID(id);
-         }
+        }
 
         [HttpPut]
-         [Route("UpdateUserColor/{userId}/{colorId}")]
-           public bool UpdateUserColor(int userId, int colorId)
-           {
+        [Route("UpdateUserColor/{userId}/{colorId}")]
+        public bool UpdateUserColor(int userId, int colorId)
+        {
             return _data.UpdateUserColor(userId, colorId);
-          }
+        }
 
         [HttpPut]
         [Route("UpdateUserImage")]
-        public IActionResult UpdateUserImage( UserModel userObject)
+        public IActionResult UpdateUserImage(UserModel userObject)
         {
             return _data.UpdateUserImage(userObject);
         }
- 
+
+
 
     }
 }

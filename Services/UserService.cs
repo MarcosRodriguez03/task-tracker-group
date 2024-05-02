@@ -38,8 +38,8 @@ namespace task_tracker_group.Services
 
                 var hashPassword = HashPassword(UserToAdd.Password);
 
-                  Random random = new Random();
-                  int randomNumber = random.Next(1, 13);
+                Random random = new Random();
+                int randomNumber = random.Next(1, 13);
 
                 newUser.ID = UserToAdd.ID;
                 newUser.Username = UserToAdd.Username;
@@ -204,65 +204,66 @@ namespace task_tracker_group.Services
         }
 
         public IActionResult UpdateUserInfo(UserModel userObject)
-    {
-
-        UserModel existingUser = GetUserById(userObject.ID);
-
-        if (existingUser != null)
         {
-           
-            existingUser.Image = userObject.Image;
-            _context.SaveChanges();
+
+            UserModel existingUser = GetUserById(userObject.ID);
+
+            if (existingUser != null)
+            {
+
+                existingUser.Image = userObject.Image;
+                _context.SaveChanges();
+            }
+            return Ok(existingUser);
         }
-        return Ok(existingUser);
-    }
 
-
-      public UserModel GetProfileByUserID(int id)
-    {
-        return _context.UserInfo.SingleOrDefault(item => item.ID == id);
-    }
-
-      public bool UpdateUserColor(int userId, int colorId)
-    {
-       UserModel existingUser = GetUserById(userId);
-
-        if (existingUser != null)
+        public bool UpdateUserColor(int userId, int colorId)
         {
-           
-            existingUser.ColorId = colorId;
-            _context.SaveChanges();
-            return true;
+            UserModel existingUser = GetUserById(userId);
+
+            if (existingUser != null)
+            {
+
+                existingUser.ColorId = colorId;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
-        return false;
-    }
 
-       public IActionResult UpdateUserImage(UserModel updateUser)
-    {
-
-        UserModel existingUser = GetUserById(updateUser.ID);
-
-        if (existingUser != null)
+        public IActionResult UpdateUserImage(UserModel updateUser)
         {
-            existingUser.Image = updateUser.Image;
-            _context.SaveChanges();
+
+            UserModel existingUser = GetUserById(updateUser.ID);
+
+            if (existingUser != null)
+            {
+                existingUser.Image = updateUser.Image;
+                _context.SaveChanges();
+            }
+            return Ok(existingUser);
         }
-        return Ok(existingUser);
-    }
+
+        public UserModel GetProfileByUserID(int id)
+        {
+            return _context.UserInfo.SingleOrDefault(item => item.ID == id);
+        }
+
+
 
 
     }
 }
-    //  public int ID { get; set; }
+//  public int ID { get; set; }
 
-    //     public string? Username { get; set; }
+//     public string? Username { get; set; }
 
-    //     public string? ProfilePicture { get; set; }
-        
-    //     public int? ColorId { get; set; }
+//     public string? ProfilePicture { get; set; }
 
-    //     public DateTime? DateMade { get; set; }
+//     public int? ColorId { get; set; }
 
-    //     public string? Salt { get; set; }
-        
-    //     public string? Hash { get; set; }
+//     public DateTime? DateMade { get; set; }
+
+//     public string? Salt { get; set; }
+
+//     public string? Hash { get; set; }

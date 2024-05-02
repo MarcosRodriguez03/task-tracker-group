@@ -28,14 +28,45 @@ namespace task_tracker_group.Controllers
         {
             return _data.CreateBoard(newBoard);
         }
-        
-        // [HttpGet]
-        // [Route("GetAllProjects")]
-        // public IEnumerable<BoardModel> GetAllProjects()
-        // {
-        //     return _data.GetAllProjects();
-        // }
 
-        
+        [HttpGet]
+        [Route("GetAllProjects")]
+        public IEnumerable<BoardModel> GetAllProjects()
+        {
+            return _data.GetAllProjects();
+        }
+
+        [HttpGet]
+        [Route("GetAllRelations")]
+        public IEnumerable<RelationTableModel> GetAllRelations()
+        {
+            return _data.GetAllRelations();
+        }
+
+        [HttpPost]
+        [Route("AddUserToProjectByUserId/{userID}/{projectID}/{boardCode}")]
+        public bool AddUserToProjectByUserId(int userID, int projectID, string boardCode)
+        {
+            return _data.AddUserToProjectByUserId(userID, projectID, boardCode);
+        }
+
+
+        [HttpGet]
+        [Route("GetProjectByID/{projectID}")]
+        public BoardModel GetProjectByID(int projectID)
+        {
+            return _data.GetProjectByID(projectID);
+        }
+
+        [HttpDelete]
+        [Route("DeleteProject/{projectID}")]
+        public bool DeleteProject(int projectID)
+        {
+            return _data.DeleteProject(projectID);
+        }
+
+
+
+
     }
 }
