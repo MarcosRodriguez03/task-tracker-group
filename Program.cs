@@ -19,7 +19,7 @@ builder.Services.AddDbContext<DataContext>(Options => Options.UseSqlServer(conne
 builder.Services.AddCors(options => options.AddPolicy("TaskTrackerPolicy",
 builder =>
 {
-    builder.WithOrigins("http://localhost:5053", "http://localhost:3000")
+    builder.WithOrigins("http://localhost:5053", "http://localhost:3000", "https://tasktrackergroup.azurewebsites.net")
     .AllowAnyHeader()
     .AllowAnyMethod();
 }));
