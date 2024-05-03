@@ -44,6 +44,7 @@ namespace task_tracker_group.Services
                 Comment = comment.Comment,
                 Username = comment.Username,
                 UserID = comment.UserID,
+                taskID = comment.taskID
             };
 
             _context.Add(commentModel);
@@ -83,6 +84,13 @@ namespace task_tracker_group.Services
             var properties = _context.TaskInfo.Where(task => task.BoardID == boardID).ToList();
 
             return properties;
+        }
+
+        public List<CommentModel> GetCommentsByTask(string taskID)
+        {
+            var comments = _context.CommentInfo.Where(comment => comment.taskID == taskID).ToList();
+
+            return comments;
         }
 
     }

@@ -11,6 +11,7 @@ namespace task_tracker_group.Models
         public string Username { get; set; }
         public string Comment { get; set; }
         public DateTime DateMade { get; set; }
+        public string taskID { get; set; }
         public int UserID { get; set; }
 
     public CommentModel()

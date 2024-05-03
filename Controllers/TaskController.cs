@@ -53,5 +53,11 @@ namespace task_tracker_group.Controllers
             return _taskService.GetBoardTasks(BoardID);
         }
         
+        [HttpGet]
+        [Route("GetCommentByTask/{taskID}")]
+        public List<CommentModel> GetCommentsByTask(string taskID)
+        {
+            return _taskService.GetCommentsByTask(taskID);
+        }
     }
 }

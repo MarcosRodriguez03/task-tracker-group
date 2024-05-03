@@ -96,7 +96,5 @@ namespace task_tracker_group.Controllers
             return _data.UpdateUserImage(userObject);
         }
 
-
-
     }
 }
